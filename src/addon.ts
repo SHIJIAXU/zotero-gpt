@@ -1,6 +1,7 @@
 import ZoteroToolkit from "zotero-plugin-toolkit/dist/index";
 import { ColumnOptions } from "zotero-plugin-toolkit/dist/helpers/virtualizedTable";
 import hooks from "./hooks";
+import Meet from "./Meet/api"
 
 class Addon {
   public data: {
@@ -21,7 +22,7 @@ class Addon {
   // Lifecycle hooks
   public hooks: typeof hooks;
   // APIs
-  public api: {};
+  public api: typeof Meet;
 
   constructor() {
     this.data = {
@@ -31,7 +32,7 @@ class Addon {
       ztoolkit: new ZoteroToolkit(),
     };
     this.hooks = hooks;
-    this.api = {};
+    this.api = Meet;
   }
 }
 
